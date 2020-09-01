@@ -25,7 +25,7 @@ def test_B():
     while len(keys)<50:
         num = randrange(100)
         if num not in keys:
-            keys.add(num)
+            keys.append(num)
             root = insert(root, num, None)
     for key in keys:
         assert(checkNode(root, key) == True)
