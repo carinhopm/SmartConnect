@@ -4,7 +4,7 @@
 Insertion function
 """
 
-import node
+from mynode import Node
 
 def insert(root, key, value):
     if root==None:
