@@ -9,9 +9,9 @@ def insert(root, key, value):
     elif key==root.key:
         root.value = value
     elif key<root.key:
-        insert(root.left, key, value)
+        root.left = insert(root.left, key, value)
     else:
-        insert(root.right, key, value)
+        root.right = insert(root.right, key, value)
     return root
 
 """
