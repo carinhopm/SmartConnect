@@ -3,9 +3,6 @@
 """
 Insertion function
 """
-
-import node
-
 def insert(root, key, value):
     if root==None:
         root = Node(key, value)
@@ -16,3 +13,14 @@ def insert(root, key, value):
     else:
         insert(root.right, key, value)
     return root
+
+"""
+Node object
+"""
+class Node:
+    
+    def __init__(self, key, value):
+        self.key = key
+        self.element = value
+        self.left = None
+        self.right = None
