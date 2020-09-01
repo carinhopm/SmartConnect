@@ -4,6 +4,8 @@
 Insertion function
 """
 
+from node import Node
+
 def insert(root, key, value):
 	if root==None:
         root = Node(key, value)
