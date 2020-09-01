@@ -33,7 +33,11 @@ def test_B():
 
 def checkNode(root, key):
     if root.key == key:
-        return true
+        if root.left is not None and root.left.key >= key:
+            return False
+        if root.right is not None and root.right.key <= key:
+            return False
+        return True
     elif root.key > key:
         return checkNode(root.left, key)
     else:
