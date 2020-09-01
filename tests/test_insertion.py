@@ -1,4 +1,5 @@
 import pytest
+from random import randrange
 
 from binarytree.insertion import insert
 
@@ -18,8 +19,22 @@ def test_A():
     root = insert(root,11,None)
     assert(root.right.left.left.key == 11)
 
-'''def test_B():
-	assert(insert(None,15,None).key == 10)
+def test_B():
+    keys = list()
+    root = None
+    while len(keys)<50:
+        num = randrange(100)
+        if num not in keys:
+            keys.add(num)
+            root = insert(root, num, None)
+    for key in keys:
+        assert(checkNode(root, key) == True)
 
-def test_C():
-	assert(insert(None,15,None).key == 10)'''
+
+def checkNode(root, key):
+    if root.key == key:
+        return true
+    elif root.key > key:
+        return checkNode(root.left, key)
+    else:
+        return checkNode(root.right, key)
