@@ -5,7 +5,7 @@ Insertion function
 """
 
 def insert(root, key, value):
-	if !root:
+	if root==None:
         root = Node(key, value)
     elif key==root.key:
         root.value = value
