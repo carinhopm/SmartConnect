@@ -1,7 +1,8 @@
 import pytest
 from random import randrange
+import requests
 
-from binarytree.insertion import insert
+from binarytree.insertion import runHttpServer, stopHttpServer, insert
 
 def test_A():
     root = insert(None,10,None)
@@ -30,6 +31,11 @@ def test_B():
     for key in keys:
         assert(checkNode(root, key) == True)
 
+def test_API():
+    server = runHttpServer()
+    sendPOST(None, 5)
+    stopHttpServer(server)
+
 
 def checkNode(root, key):
     if root.key == key:
@@ -42,3 +48,12 @@ def checkNode(root, key):
         return checkNode(root.left, key)
     else:
         return checkNode(root.right, key)
+
+def sendPOST(tree, value):
+    body = {"value": value, "tree": tree }
+    resp = requests.post('http://localhost:8080/insert', json=body)
+    if resp.status_code != 200:
+        # This means something went wrong.
+        raise ApiError('POST /insert {}'.format(resp.status_code))
+    for todo_item in resp.json():
+        print("JSON Response: "+todo_item)
