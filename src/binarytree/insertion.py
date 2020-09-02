@@ -3,36 +3,6 @@
 import json
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
-"""
-Run HTTP Server
-"""
-def runHttpServer(server_class=HTTPServer, handler_class=S, port=8080):
-    server_address = ('', port)
-    httpd = server_class(server_address, handler_class)
-    print('Starting httpd...')
-    httpd.serve_forever()
-    return httpd
-
-"""
-Stop HTTP Server
-"""
-def stopHttpServer(httpd):
-    httpd.server_close()
-    print('Stopping httpd...')
-
-"""
-Insertion function
-"""
-def insert(root, key, value):
-    if root==None:
-        root = Node(key, value)
-    elif key==root.key:
-        root.value = value
-    elif key<root.key:
-        root.left = insert(root.left, key, value)
-    else:
-        root.right = insert(root.right, key, value)
-    return root
 
 """
 Node object
@@ -75,3 +45,35 @@ class S(BaseHTTPRequestHandler):
     def updateTree(tree, value):
         newTree = {"message": "default response"}
         return newTree
+
+
+"""
+Run HTTP Server
+"""
+def runHttpServer(server_class=HTTPServer, handler_class=S, port=8080):
+    server_address = ('', port)
+    httpd = server_class(server_address, handler_class)
+    print('Starting httpd...')
+    httpd.serve_forever()
+    return httpd
+
+"""
+Stop HTTP Server
+"""
+def stopHttpServer(httpd):
+    httpd.server_close()
+    print('Stopping httpd...')
+
+"""
+Insertion function
+"""
+def insert(root, key, value):
+    if root==None:
+        root = Node(key, value)
+    elif key==root.key:
+        root.value = value
+    elif key<root.key:
+        root.left = insert(root.left, key, value)
+    else:
+        root.right = insert(root.right, key, value)
+    return root
