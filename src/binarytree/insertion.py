@@ -16,7 +16,7 @@ def runHttpServer(server_class=HTTPServer, handler_class=S, port=8080):
 """
 Stop HTTP Server
 """
-def stopHttpServer(httpd)
+def stopHttpServer(httpd):
     httpd.server_close()
     print('Stopping httpd...')
 
