@@ -5,6 +5,9 @@ from glob import glob
 
 from setuptools import find_packages
 
+"""
+This provides the directories where the python files are located in the repo.
+"""
 setup(name='Insertion',
       version='1.0',
       description='SmartConnect Student Challenge',

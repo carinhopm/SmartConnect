@@ -3,7 +3,7 @@ This repo contains the solution for the parts 1 & 2 of the SmartConnect Student 
 consisting on the implementation of the operation _insert_ for a Binary Search Tree (BST).
 
 ## Technnical details
-The challenge has been implemented using Python 3.7 as programming language. 
+The challenge has been implemented using Python 3.6 as programming language. 
 This implementation can be found in the file _src/binarytree/insertion.py_.
 
 Within the folder _tests_ it can be found the file _test_insertion.py_ containing two tests:
@@ -17,3 +17,7 @@ a right child with a higher key (in case it has children).
 These tests are being runned by Travis-CI everytime a new commit is pushed. The Travis-CI configuration can be found in the file _.travis.yml_, 
 which prepares the environment and runs the Python file _setup.py_ 
 containing the information to run the tests.
+
+## Part 3
+
+I'm currently working on part 3 using the integration branch, still debugging...

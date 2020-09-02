@@ -5,13 +5,13 @@ Insertion function
 """
 def insert(root, key, value):
     if root==None:
-        root = Node(key, value)
+        root = Node(key, value) # create root node
     elif key==root.key:
-        root.value = value
+        root.value = value # update node value
     elif key<root.key:
-        root.left = insert(root.left, key, value)
+        root.left = insert(root.left, key, value) # insert on left subtree
     else:
-        root.right = insert(root.right, key, value)
+        root.right = insert(root.right, key, value) # insert on right subtree
     return root
 
 """

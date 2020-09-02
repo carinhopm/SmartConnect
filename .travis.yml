@@ -1,13 +1,13 @@
 language: python
 python:
-  - "3.6"      # current default Python on Travis CI
+  - "3.6" # current default Python version on Travis-CI
 before_install:
-  - "pip install -U pip"
-  - "export PYTHONPATH=$PYTHONPATH:$(pwd)"
-  - "python setup.py install"
+  - "pip install -U pip" # install pip latest version
+  - "export PYTHONPATH=$PYTHONPATH:$(pwd)" # set python path
 # command to install dependencies
 install:
-  - pip install -e .
+  - "pip install -e ."
+  - "python setup.py install" # run setup.py
 # command to run tests
 script:
   - pytest
